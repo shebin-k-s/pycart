@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        {% include 'navbar.html' %}
+        {% block  header_content %}
+        {% endblock header_content %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content%}
+    </main>
+
+    <footer>
+       {% include 'footer.html' %}
+    </footer>
+</body>
+
+</html>
