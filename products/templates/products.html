@@ -1,2 +1,52 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+{% block content %}
 
-hello
+<div class="products-page">
+
+
+    <div class="products-heading">
+        <h1 class="title">
+            All Products
+        </h1>
+        <select name="category" id="category" class="sorting-btn">
+            <option value="">Sort By Price</option>
+            <option value="">Sort By popularity</option>
+            <option value="">Sort By Rating</option>
+            <option value="">Sort By Sale</option>
+        </select>
+
+    </div>
+
+
+    <div class="products-container">
+        {% for i in products %}
+        <div class="product-card">
+            <a href="{% url 'product_detail' %}">
+                <img src="{% static 'images/buy-1.jpg'%}" alt="product-img" />
+                <hr>
+                <div class="product-info">
+                    <p class="title">
+                        Red Printed T-Shirt
+                    </p>
+                    <p class="rating">
+                        {% for i in stars %}
+                        {% if i < rating %} <i class="fas fa-star"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endfor %}
+                    </p>
+                    <p class="price">
+                        $50.0
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock content %}
