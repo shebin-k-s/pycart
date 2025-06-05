@@ -1,0 +1,65 @@
+{% extends 'blank_layout.html' %}
+
+{% load static %}
+
+{% block header_content %}
+<div class="header">
+    <div class="row">
+
+        <div class="col-2">
+            <img src="{% static 'images/header-img.png'%}" alt="header-img">
+
+        </div>
+        <div class="col-1">
+            <div class="account-container">
+                <div class="toggle-option">
+                    <h3 id="login-toggle">Login</h3>
+                    <h3 id="register-toggle">Register</h3>
+                </div>
+                <div class="line-selector">
+                    <hr id="selector-line">
+                </div>
+
+                <div class="forms">
+                    <form id="login-form" class="input-options active">
+                        <input type="text" placeholder="Username" />
+                        <input type="text" placeholder="Password" />
+                        <input type="button" value="Login">
+                    </form>
+                    <form id="register-form" class="input-options">
+                        <input type="text" placeholder="Username" />
+                        <input type="text" placeholder="Email" />
+                        <input type="text" placeholder="Password" />
+                        <input type="button" value="Register">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loginToggle = document.getElementById("login-toggle");
+        const registerToggle = document.getElementById("register-toggle");
+        const selectorLine = document.getElementById("selector-line");
+
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+
+        loginToggle.addEventListener("click", () => {
+            selectorLine.style.transform = "translateX(0%)";
+            loginForm.classList.add("active");
+            registerForm.classList.remove("active");
+        });
+
+        registerToggle.addEventListener("click", () => {
+            selectorLine.style.transform = "translateX(100px)";
+            registerForm.classList.add("active");
+            loginForm.classList.remove("active");
+        });
+    });
+</script>
+
+
+{% endblock header_content%}

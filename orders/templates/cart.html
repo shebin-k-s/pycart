@@ -1,0 +1,70 @@
+{% extends 'blank_layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="cart-products-container">
+    <table>
+        <tbody>
+            <tr class="table-heading">
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+
+            {% for product in products %}
+            <tr>
+                <th>
+                    <div class="product-details">
+                        <img src="{% static 'images/buy-1.jpg'%}" alt="product-img" />
+                        <div class="cart-product-description">
+                            <p class="title">Red Printed T-Shirt</p>
+                            <p class="price">Price : $50.0</p>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="counter">
+
+                        <input type="number" name="count" id="count" value="1" />
+                    </div>
+                </th>
+                <th>
+                    <p class="sub-total">
+                        $50.00
+                    </p>
+                </th>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>
+                    Subtotal
+                </td>
+                <td>$200.00</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>$35.00</td>
+            </tr>
+            <tr>
+                <td>
+                    Total
+                </td>
+                <td>
+                    $230.00
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+{% endblock content %}

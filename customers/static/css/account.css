@@ -1,0 +1,82 @@
+.account-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    box-shadow: 5px #2c2b2b;
+    width: min-content;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.account-container .toggle-option {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.toggle-option h3 {
+    width: 100px;
+    color: #555;
+    margin: 0;
+    cursor: pointer;
+}
+
+.account-container .line-selector {
+    display: flex;
+    width: 250px;
+    margin: 7px 0 10px 80px;
+}
+
+.account-container hr {
+    width: 30%;
+    height: 2px;
+    background-color: #ff523b;
+    transition: transform 0.5s ease;
+
+}
+
+.account-container .input-options {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.input-options input[type='text'] {
+    height: 30px;
+    width: 250px;
+    border: 1px solid #ff523b;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-options input[type='text']:focus {
+    border: 2px solid #ff523b;
+
+}
+
+.input-options input[type=button] {
+    background-color: #ff523b;
+    border: none;
+    height: 40px;
+    width: 250px;
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+
+.input-options.active {
+    display: flex;
+}

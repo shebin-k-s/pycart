@@ -9,8 +9,8 @@
                 <a href="{% url 'products' %}">Products</a>
                 <a href="about">About</a>
                 <a href="contact">Contact</a>
-                <a href="account">Account</a>
-                <a href="cart">
+                <a href="{% url 'account' %}">Account</a>
+                <a href="{% url 'cart' %}">
                     <img src="{% static 'images/cart.png' %}" alt="cart-logo" class="cart-logo">
                 </a>
             </div>
