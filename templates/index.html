@@ -6,3 +6,37 @@
 {% include 'header.html' %}
 
 {% endblock header_content%}
+
+{% block content %}
+
+<div class="category-heading">
+    <h2>Featured Products</h2>
+    <hr>
+</div>
+<div class="products-container">
+
+    {% for product in featured_products %}
+
+    {% include "product_layout.html" with product=product stars=stars rating=rating %}
+
+    {% endfor %}
+</div>
+
+<div class="category-heading">
+    <h2>Latest Products</h2>
+    <hr>
+</div>
+
+<div class="products-container">
+
+    {% for product in latest_products %}
+
+    {% include "product_layout.html" with product=product stars=stars rating=rating %}
+
+    {% endfor %}
+</div>
+<br>
+<br>
+
+
+{% endblock content%}

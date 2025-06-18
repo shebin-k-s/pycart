@@ -220,3 +220,22 @@ hr {
     margin: 0;
     width: 90%;
 }
+
+.category-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    font-size: 25px;
+    margin: 80px 0 40px 0;
+}
+.category-heading h2{
+    margin: 0 0 10px 0;
+}
+
+.category-heading hr{
+    width: 180px;
+    height: 3px;
+    background-color: #ff523b;
+}

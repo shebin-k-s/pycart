@@ -13,27 +13,31 @@
                 <th>Subtotal</th>
             </tr>
 
-            {% for product in products %}
+            {% for item in cart_items %}
             <tr>
                 <th>
                     <div class="product-details">
-                        <img src="{% static 'images/buy-1.jpg'%}" alt="product-img" />
+                        <img src="{{ item.product.image.url }}" alt="product-img" />
                         <div class="cart-product-description">
-                            <p class="title">Red Printed T-Shirt</p>
-                            <p class="price">Price : $50.0</p>
-                            <a href="">Remove</a>
+                            <p class="title">{{ item.product.title }}</p>
+                            <p class="price">Price : ${{item.product.price}}</p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{item.id}}">
+                                <input type="submit" value="Remove" />
+                            </form>
                         </div>
                     </div>
                 </th>
                 <th>
                     <div class="counter">
 
-                        <input type="number" name="count" id="count" value="1" />
+                        <input type="number" name="count" id="count" value="{{item.quantity}}" />
                     </div>
                 </th>
                 <th>
                     <p class="sub-total">
-                        $50.00
+                        $ {{item.product.price}}
                     </p>
                 </th>
             </tr>

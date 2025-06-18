@@ -7,7 +7,7 @@ class Customer(models.Model):
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'Live'), (DELETE, 'Delete'))
     name = models.CharField(max_length=200)
-    address = models.TextField
+    address = models.TextField()
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
     phone = models.CharField(max_length=10)
     delete_status = models.IntegerField(choices=DELETE_CHOICES, default=LIVE)
@@ -16,4 +16,4 @@ class Customer(models.Model):
 
 
     def __str__(self):
-        return f"{self.title}({self.price})"
+        return f"{self.user.username}"

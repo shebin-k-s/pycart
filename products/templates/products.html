@@ -20,14 +20,14 @@
 
 
     <div class="products-container">
-        {% for i in products %}
+        {% for product in products %}
         <div class="product-card">
-            <a href="{% url 'product_detail' %}">
-                <img src="{% static 'images/buy-1.jpg'%}" alt="product-img" />
+            <a href="{% url 'product_detail' product.id %}">
+                <img src="{{product.image.url  }}" alt="product-img" />
                 <hr>
                 <div class="product-info">
                     <p class="title">
-                        Red Printed T-Shirt
+                        {{product.title}}
                     </p>
                     <p class="rating">
                         {% for i in stars %}
@@ -38,15 +38,31 @@
                             {% endfor %}
                     </p>
                     <p class="price">
-                        $50.0
+                        ${{product.price}}
                     </p>
                 </div>
             </a>
         </div>
 
+        {% empty %}
+        No Product
+
         {% endfor %}
 
+
+
+
+
     </div>
+    
+    <div class="page-btn">
+        {% for i in products.paginator.page_range %}
+        <div class="page-container {% if products.number == i %} current-page {% endif %}">
+            <a href="?page={{ i }}">{{ i }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock content %}

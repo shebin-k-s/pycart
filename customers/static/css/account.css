@@ -65,7 +65,7 @@
 
 }
 
-.input-options input[type=button] {
+.input-options input[type=submit] {
     background-color: #ff523b;
     border: none;
     height: 40px;
@@ -79,4 +79,20 @@
 
 .input-options.active {
     display: flex;
+}
+
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    margin: 40px;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+
+}
+
+.profile-container .profile{
+    max-width: 500px;
 }

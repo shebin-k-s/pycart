@@ -12,25 +12,39 @@
         </div>
         <div class="col-1">
             <div class="account-container">
+                {% if messages %}
+                {% for message in messages %}
+                <p>
+                    {{message}}
+                </p>
+                {% endfor %}
+                {% endif %}
+
                 <div class="toggle-option">
-                    <h3 id="login-toggle">Login</h3>
-                    <h3 id="register-toggle">Register</h3>
+                    <h3 id="login-toggle" onclick="login()">Login</h3>
+                    <h3 id="register-toggle" onclick="register()">Register</h3>
                 </div>
                 <div class="line-selector">
                     <hr id="selector-line">
                 </div>
 
+
                 <div class="forms">
-                    <form id="login-form" class="input-options active">
-                        <input type="text" placeholder="Username" />
-                        <input type="text" placeholder="Password" />
-                        <input type="button" value="Login">
+                    <form id="login-form" class="input-options active" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" required placeholder="Username" />
+                        <input type="text" name="password" required placeholder="Password" />
+                        <input type="submit" value="Login">
                     </form>
-                    <form id="register-form" class="input-options">
-                        <input type="text" placeholder="Username" />
-                        <input type="text" placeholder="Email" />
-                        <input type="text" placeholder="Password" />
-                        <input type="button" value="Register">
+                    <form id="register-form" class="input-options" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" required placeholder="Username" />
+                        <input type="text" name="email" required placeholder="Email" />
+                        <input type="text" name="password" required placeholder="Password" />
+                        <input type="text" name="address" required placeholder="address" />
+                        <input type="text" name="phone" required placeholder="phone" />
+
+                        <input type="submit" name="register" value="Register">
                     </form>
                 </div>
             </div>
@@ -38,28 +52,38 @@
         </div>
     </div>
 </div>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loginToggle = document.getElementById("login-toggle");
-        const registerToggle = document.getElementById("register-toggle");
-        const selectorLine = document.getElementById("selector-line");
+    const loginToggle = document.getElementById("login-toggle");
+    const registerToggle = document.getElementById("register-toggle");
+    const selectorLine = document.getElementById("selector-line");
 
-        const loginForm = document.getElementById("login-form");
-        const registerForm = document.getElementById("register-form");
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
 
-        loginToggle.addEventListener("click", () => {
-            selectorLine.style.transform = "translateX(0%)";
-            loginForm.classList.add("active");
-            registerForm.classList.remove("active");
-        });
+    function login() {
+        selectorLine.style.transform = "translateX(0%)";
+        loginForm.classList.add("active");
+        registerForm.classList.remove("active");
+    };
 
-        registerToggle.addEventListener("click", () => {
-            selectorLine.style.transform = "translateX(100px)";
-            registerForm.classList.add("active");
-            loginForm.classList.remove("active");
-        });
-    });
+    function register() {
+        selectorLine.style.transform = "translateX(100px)";
+        registerForm.classList.add("active");
+        loginForm.classList.remove("active");
+    };
+
 </script>
 
+{% if register %}
+<script>
+    register()
+</script>
+{% else %}
+<script>
+    login()
+</script>
+
+{% endif %}
 
 {% endblock header_content%}

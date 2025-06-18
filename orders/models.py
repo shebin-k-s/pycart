@@ -16,7 +16,7 @@ class Order(models.Model):
     STATUS_CHOICE = ((CART_STAGE, "CART_STAGE"),
                      (ORDER_CONFIRMED, "ORDER_CONFIRMED"),
                      (ORDER_PROCESSED, "ORDER_PROCESSED"),
-                     (ORDER_REJECTED, "ORDER_REJECTED"),
+                     (ORDER_DELIVERED, "ORDER_DELIVERED"),
                      (ORDER_REJECTED, "ORDER_REJECTED"),
                      )
 
@@ -32,7 +32,7 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class OrderedItems(models.Model):
+class OrderedItem(models.Model):
     product = models.ForeignKey(
         Product, on_delete=models.SET_NULL, null=True, related_name='added_carts')
     quantity = models.IntegerField(default=1)

@@ -91,3 +91,12 @@ tr .cart-product-description{
 td:last-child{
     text-align: right;
 }
+
+tr input[type=submit] {
+    background-color: white;
+    border: none;
+    color: #ff523b;
+    font-size: 15px;
+    cursor: pointer;
+}
+

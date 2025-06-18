@@ -1,0 +1,22 @@
+<div class="product-card">
+    <a href="{% url 'product_detail' product.id %}">
+        <img src="{{product.image.url  }}" alt="product-img" />
+        <hr>
+        <div class="product-info">
+            <p class="title">
+                {{product.title}}
+            </p>
+            <p class="rating">
+                {% for i in stars %}
+                {% if i < rating %} <i class="fas fa-star"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endfor %}
+            </p>
+            <p class="price">
+                ${{product.price}}
+            </p>
+        </div>
+    </a>
+</div>
